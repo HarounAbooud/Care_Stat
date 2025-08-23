@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 
 st.set_page_config(page_title="Care_Stat Dashboard", layout="wide")
-st.title("🏥 Care_Stat Dashboard")
+st.title("Care_Stat Dashboard")
 
 @st.cache_data
 def load_data():
@@ -42,10 +42,10 @@ df = load_data()
 
 st.header("Dashboard Tabs")
 
-tab1, tab2, tab3 = st.tabs(["🧑‍⚕️ Organization Overview", "🩺 Patient & Treatment Data", "💳 Financial Performance"])
+tab1, tab2, tab3 = st.tabs(["Hospit Overview", "Patient & Treatment Data", "Financial Performance"])
 
 with tab1:
-    st.header("🧑‍⚕️ Hospital Overview")
+    st.header("Hospital Overview")
 
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -94,7 +94,7 @@ with tab1:
     st.plotly_chart(fig3, use_container_width=True)
 
 with tab2:
-    st.header("🩺 Patient & Treatment Data")
+    st.header("Patient & Treatment Data")
     
     disease_list = ["All"] + list(df["disease_name"].dropna().unique())
     selected_disease = st.selectbox("Select Disease", disease_list, key="tab2_disease")
@@ -132,7 +132,7 @@ with tab2:
     st.plotly_chart(fig3, use_container_width=True)
 
 with tab3:
-    st.header("💳 Financial Performance")
+    st.header("Financial Performance")
     
     status_list = ["All"] + list(df["payment_status"].dropna().unique())
     selected_status = st.selectbox("Payment Status", status_list, key="tab3_status")
@@ -174,3 +174,4 @@ with tab3:
         st.plotly_chart(fig3, use_container_width=True)
     else:
         st.warning("Not enough date information to display monthly revenue.")
+
